@@ -7,19 +7,14 @@ export default function SkinHero() {
       className="relative isolate overflow-hidden bg-[#faf7f1]
                  pt-[56px] pb-[64px] min-h-[700px]
                  max-[1024px]:pt-[48px] max-[1024px]:pb-[52px] max-[1024px]:min-h-[620px]
-                 max-[560px]:pt-0 max-[560px]:pb-0 max-[560px]:min-h-[470px]"
+                 max-[560px]:pt-10 max-[560px]:pb-10 max-[560px]:min-h-0 max-[470px]:pt-[20px]"
     >
+      {/* Background image — desktop & tablet only */}
       <div
         className="absolute inset-0 bg-no-repeat bg-cover bg-[72%_center]
                    max-[768px]:bg-[74%_center]
-                   max-[560px]:bg-[70%_center]"
+                   max-[560px]:hidden"
         style={{ backgroundImage: "url('/saveCopy.png')" }}
-        aria-hidden="true"
-      />
-
-      {/* Mobile overlay – heavier so text stays legible over the photo */}
-      <div
-        className="absolute inset-0 hidden max-[560px]:block bg-[#faf7f1]/72"
         aria-hidden="true"
       />
 
@@ -27,24 +22,27 @@ export default function SkinHero() {
         className="relative z-10 max-w-[1600px] mx-auto
                    pl-32 pr-16
                    max-[768px]:pl-10 max-[768px]:pr-8
-                   max-[560px]:min-h-[470px] max-[560px]:px-4 max-[560px]:flex max-[560px]:items-center"
+                   max-[560px]:px-5"
       >
         <div className="max-w-[760px] max-[560px]:mx-auto max-[560px]:w-full">
           <div className="max-w-[720px] max-[560px]:max-w-full max-[560px]:w-full max-[560px]:text-center">
             <AnimateIn animation="left">
+
+              {/* Location tag */}
               <div
                 className="inline-flex items-center gap-3 mb-6
                            text-[12px] tracking-[.22em] uppercase text-[#666]
-                           max-[560px]:mb-5 max-[560px]:justify-center
-                           max-[560px]:text-[12px] max-[560px]:tracking-[.2em]"
+                           max-[560px]:mb-4 max-[560px]:justify-center
+                           max-[560px]:text-[14px] max-[560px]:tracking-[.18em]"
               >
-                <span className="w-8 h-px bg-[#d4202a] max-[560px]:w-7" aria-hidden="true" />
+                <span className="w-8 h-px bg-[#d4202a] max-[560px]:hidden" aria-hidden="true" />
                 Royapuram . Chennai
               </div>
 
+              {/* Heading */}
               <h1
-                className="font-extrabold leading-[0.98] tracking-[-0.05em] text-[#0a0a0a] mb-5
-                           max-[560px]:mb-5"
+                className="font-extrabold leading-[0.98] tracking-[-0.05em] text-[#0a0a0a]
+                           mb-5 max-[560px]:mb-6"
                 style={{ fontSize: "clamp(42px, 8.4vw, 88px)" }}
               >
                 Best Skin
@@ -53,15 +51,27 @@ export default function SkinHero() {
                 <em className="not-italic text-[#d4202a]">Royapuram</em>
               </h1>
 
+              {/* Hero image — mobile only, between heading and para */}
+              <div className="hidden max-[560px]:block mb-5 -mx-5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/savemonone.png"
+                  alt="Best skin clinic in Royapuram Chennai"
+                  className="w-full h-[260px] object-cover object-[70%_top]"
+                />
+              </div>
+
+              {/* Paragraph */}
               <p
                 className="text-[#3a3a3a] leading-[1.65] max-w-[480px] mb-[36px]
                            max-[560px]:max-w-full max-[560px]:mx-auto max-[560px]:mb-6"
-                style={{ fontSize: "clamp(18px, 3vw, 18px)" }}
+                style={{ fontSize: "clamp(15px, 3vw, 18px)" }}
               >
                 Special Treatments for All{" "}
                 <strong className="font-semibold text-[#0a0a0a]">Skin Problems</strong>
               </p>
 
+              {/* CTA button */}
               <a
                 id="book"
                 href="#consultation-form"
@@ -85,6 +95,7 @@ export default function SkinHero() {
                 </span>
                 <span className="whitespace-nowrap">Book Your Free Consultation</span>
               </a>
+
             </AnimateIn>
           </div>
         </div>
