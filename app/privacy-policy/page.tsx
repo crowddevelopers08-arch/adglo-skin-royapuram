@@ -305,15 +305,15 @@ export default function PrivacyPolicyPage() {
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#d4202a] shrink-0">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              <a href="tel:+917436856789"
+              <a href="tel:+917358034097"
                  className="text-[14px] text-[#777] hover:text-[#d4202a] transition-colors duration-200">
-                +91 74368 56789
+                +91 73580 34097
               </a>
             </div>
           </div>
           <div className="flex gap-4 flex-wrap">
             <a
-              href="tel:+917436856789"
+              href="tel:+917358034097"
               className="inline-flex items-center gap-2.5
                          bg-[#d4202a] text-white font-semibold
                          px-7 py-3.5 text-[12px] tracking-[.14em] uppercase

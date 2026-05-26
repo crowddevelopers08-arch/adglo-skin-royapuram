@@ -8,9 +8,9 @@ const navLinks = [
   { label: "FAQ",             href: "#faq"          },
 ]
 
-const PHONE       = "7436856789"
+const PHONE       = "7358034097"
 const PHONE_TEL   = `tel:+91${PHONE}`
-const PHONE_DISPLAY = "+91 74368 56789"
+const PHONE_DISPLAY = "+91 73580 34097"
 const WA_LINK     = `https://wa.me/91${PHONE}`
 const ADDRESS     = "First Floor, No.187, MS Koil St,\nabove Time emporium, Somu Nagar,\nRoyapuram, Chennai, Tamil Nadu 600013"
 const IG_LINK     = "https://www.instagram.com/adgloskinclinicroyapuram/"

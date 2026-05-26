@@ -95,7 +95,7 @@ export default function ThankYouPage() {
 
               <div className="flex items-center justify-center gap-4 flex-wrap max-[480px]:w-full max-[480px]:gap-3">
                 <a
-                  href="tel:+917436856789"
+                  href="tel:+917358034097"
                   className="inline-flex min-w-[196px] items-center justify-center gap-3 bg-[#ef2733] text-white font-bold px-8 py-4 text-[12px] tracking-[.16em] uppercase hover:bg-white hover:text-[#ef2733] transition-all duration-300 max-[480px]:w-full"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0">
@@ -104,7 +104,7 @@ export default function ThankYouPage() {
                   Call Us Now
                 </a>
                 <a
-                  href="https://wa.me/917436856789"
+                  href="https://wa.me/917358034097"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-w-[196px] items-center justify-center gap-2.5 border border-white/30 text-white font-semibold px-8 py-4 text-[12px] tracking-[.16em] uppercase hover:border-[#25d366] hover:bg-[#25d366] transition-all duration-300 max-[480px]:w-full"
@@ -188,13 +188,13 @@ export default function ThankYouPage() {
                     Call / WhatsApp
                   </p>
                   <a
-                    href="tel:+917436856789"
+                    href="tel:+917358034097"
                     className="text-[15px] font-semibold text-[#f5f1ea] hover:text-[#d4202a] transition-colors duration-200 block mb-1"
                   >
-                    +91 74368 56789
+                    +91 73580 34097
                   </a>
                   <a
-                    href="https://wa.me/917436856789"
+                    href="https://wa.me/917358034097"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[13px] text-[#666] hover:text-[#25d366] transition-colors duration-200"

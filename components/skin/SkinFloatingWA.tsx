@@ -4,7 +4,7 @@ const WA_PATH =
 export default function SkinFloatingWA() {
   return (
     <a
-      href="https://wa.me/910000000000"
+      href="https://wa.me/917358034097"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

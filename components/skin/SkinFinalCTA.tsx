@@ -1,7 +1,7 @@
 export default function SkinFinalCTA() {
   const infoRows = [
     { ic: "📍", l1: "Royapuram, Chennai", l2: "Tamil Nadu — 600 013" },
-    { ic: "📞", l1: "+91 00000 00000",    l2: "Mon–Sat · 10am–8pm"   },
+    { ic: "📞", l1: "+91 73580 34097",    l2: "Mon–Sat · 10am–8pm"   },
     { ic: "✦",  l1: "Free initial skin consultation", l2: "No commitment required" },
   ]
 
@@ -46,7 +46,7 @@ export default function SkinFinalCTA() {
                 Book Free Consultation
               </a>
               <a
-                href="tel:+910000000000"
+                href="tel:+917358034097"
                 className="inline-flex items-center gap-3 border border-white text-white px-8 py-4 text-[12px] tracking-[.14em] uppercase font-medium hover:bg-white hover:text-[#d4202a] transition-all duration-[250ms]"
               >
                 Call Now
