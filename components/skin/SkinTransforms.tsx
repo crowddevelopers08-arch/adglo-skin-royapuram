@@ -77,9 +77,9 @@ export default function SkinTransforms() {
       id="transforms"
       className="py-[100px] bg-white
                  max-[768px]:py-[70px]
-                 max-[560px]:py-[40px]"
+                 max-[560px]:py-[20px]"
     >
-      <div className="max-w-[1600px] mx-auto px-16 max-[768px]:px-12 max-[560px]:px-8">
+      <div className="max-w-[1600px] mx-auto px-16 max-[768px]:px-12 max-[560px]:px-8 max-[470px]:px-4">
         <AnimateIn animation="up" className="text-center mb-[60px] max-[560px]:mb-[30px]">
           <div
             className="inline-flex items-center gap-3 mb-4
