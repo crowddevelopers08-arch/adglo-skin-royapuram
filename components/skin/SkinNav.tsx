@@ -14,9 +14,9 @@ export default function SkinNav() {
           <img
             src="/adglow-rajaji.png"
             alt="Advanced GloSkin - Skin Glow Forever"
-            className="h-16 w-auto object-contain
-                       max-[768px]:h-12
-                       max-[560px]:h-9"
+            className="h-20 w-auto object-contain
+                       max-[768px]:h-16
+                       max-[560px]:h-12"
           />
         </a>
 
