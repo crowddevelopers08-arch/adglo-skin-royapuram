@@ -289,7 +289,7 @@ export default function PrivacyPolicyPage() {
           </h3>
           <p className="text-[14px] text-[#888] leading-[1.75] mb-7 max-w-[480px]">
             If you have any questions, concerns, or requests regarding this Privacy Policy or
-            how we handle your personal information, please contact us.
+            how we handle your personal informations, please contact us.
           </p>
           <div className="flex flex-col gap-3 mb-8">
             <div className="flex items-start gap-3">
