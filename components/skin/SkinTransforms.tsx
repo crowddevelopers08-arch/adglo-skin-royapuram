@@ -1,13 +1,31 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import AnimateIn from "./AnimateIn"
 
-const transform = {
-  tag: "Skin Transformation",
-  img: "bfnew.png",
-  alt: "Glowing skin after treatment at AdGlo Royapuram",
-}
+/** Four before/after transformation images – 2 shown at a time, auto-scroll every 3 s */
+const transformImages = [
+  {
+    src: "/72dd1cb1-c839-4fb9-a472-be1a0fbc08a4.png",
+    alt: "Skin brightening transformation at AdGlo Royapuram",
+    label: "Gluta IV Result",
+  },
+  {
+    src: "/637aad91-97eb-4e02-b1b4-3bc12d72fa05.png",
+    alt: "Acne clearing transformation at AdGlo Royapuram",
+    label: "Chemical Peel Result",
+  },
+  {
+    src: "/aaf089a7-7445-460a-81b4-825f1e6350f5.png",
+    alt: "Pore reduction transformation at AdGlo Royapuram",
+    label: "Aqua Luxe Result",
+  },
+  {
+    src: "/178431e9-e30c-43c0-b9cb-88d71a68327c.png",
+    alt: "Pigmentation reduction transformation at AdGlo Royapuram",
+    label: "Micro Needling Result",
+  },
+]
 
 const treatments = [
   "Gluta IV",
@@ -16,6 +34,10 @@ const treatments = [
   "Micro Needling",
 ]
 
+/** Pairs: [0,1] then [2,3] */
+const PAIRS = [[0, 1], [2, 3]]
+const INTERVAL_MS = 3000
+
 export default function SkinTransforms() {
   const [name,      setName]      = useState("")
   const [phone,     setPhone]     = useState("")
@@ -23,6 +45,16 @@ export default function SkinTransforms() {
   const [treatment, setTreatment] = useState("")
   const [status,    setStatus]    = useState<"idle" | "loading" | "error">("idle")
   const [errMsg,    setErrMsg]    = useState("")
+
+  /* which pair is currently visible: 0 → images 0&1, 1 → images 2&3 */
+  const [pairIdx, setPairIdx] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setPairIdx(p => (p + 1) % PAIRS.length)
+    }, INTERVAL_MS)
+    return () => clearInterval(id)
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -72,6 +104,8 @@ export default function SkinTransforms() {
     "text-[14px] text-[#111] outline-none transition " +
     "focus:border-[#d4202a] focus:ring-2 focus:ring-[#d4202a]/15"
 
+  const activePair = PAIRS[pairIdx]
+
   return (
     <section
       id="transforms"
@@ -103,30 +137,71 @@ export default function SkinTransforms() {
         </AnimateIn>
 
         <div
-          className="mx-auto max-w-[1240px] grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-3 items-stretch
+          className="mx-auto max-w-[1240px] grid grid-cols-[1fr_500px] gap-3 items-stretch
                      max-[1100px]:grid-cols-1 max-[1100px]:gap-8"
         >
-          {/* Before / After image */}
+          {/* ── Before / After image carousel ── */}
           <AnimateIn animation="left" className="h-full">
-            <div className="h-full w-full overflow-hidden rounded-[30px] border border-black/10 bg-[#faf7f1] p-4">
-              <p className="mb-4 text-[13px] tracking-[.2em] uppercase text-[#d4202a] font-semibold">
-                {transform.tag}
-              </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={transform.img}
-                alt={transform.alt}
-                className="h-[100%] min-h-[360px] w-full rounded-[24px] object-cover
-                           max-[1100px]:min-h-[320px] max-[640px]:min-h-[240px]"
-              />
+            <div className="h-full w-full overflow-hidden rounded-[30px] border border-black/10 bg-[#faf7f1] p-4 flex flex-col">
+
+              {/* header */}
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-[13px] tracking-[.2em] uppercase text-[#d4202a] font-semibold">
+                  Skin Transformation
+                </p>
+                {/* dot indicators */}
+                <div className="flex gap-2">
+                  {PAIRS.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setPairIdx(i)}
+                      aria-label={`Go to pair ${i + 1}`}
+                      className={`rounded-full transition-all duration-300 ${
+                        i === pairIdx
+                          ? "w-5 h-2 bg-[#d4202a]"
+                          : "w-2 h-2 bg-[#d4202a]/30 hover:bg-[#d4202a]/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* 2-up grid with crossfade */}
+              <div className="relative flex-1 min-h-48 max-[640px]:min-h-36">
+                {PAIRS.map((pair, pi) => (
+                  <div
+                    key={pi}
+                    className={`absolute inset-0 grid grid-cols-2 gap-3 transition-opacity duration-700 ${
+                      pi === pairIdx ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    {pair.map(imgIdx => {
+                      const img = transformImages[imgIdx]
+                      return (
+                        <div key={imgIdx} className="relative flex flex-col gap-2">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={img.src}
+                            alt={img.alt}
+                            className="w-full h-full object-cover rounded-[20px]"
+                          />
+                          {/* <span className="absolute bottom-2 left-0 right-0 text-center text-[11px] font-semibold tracking-[.12em] uppercase text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+                            {img.label}
+                          </span> */}
+                        </div>
+                      )
+                    })}
+                  </div>
+                ))}
+              </div>
             </div>
           </AnimateIn>
 
-          {/* Booking form card */}
+          {/* ── Booking form card ── */}
           <AnimateIn
             animation="right"
             delay={120}
-            className="flex h-full w-full max-w-[500px] ml-auto"
+            className="flex h-full w-full"
           >
             <div
               id="consultation-form"
