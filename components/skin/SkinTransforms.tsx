@@ -6,12 +6,12 @@ import AnimateIn from "./AnimateIn"
 /** Four before/after transformation images – 2 shown at a time, auto-scroll every 3 s */
 const transformImages = [
   {
-    src: "/72dd1cb1-c839-4fb9-a472-be1a0fbc08a4.png",
+    src: "/sl.jpg",
     alt: "Skin brightening transformation at AdGlo Royapuram",
     label: "Gluta IV Result",
   },
   {
-    src: "/637aad91-97eb-4e02-b1b4-3bc12d72fa05.png",
+    src: "/before-and.jpg",
     alt: "Acne clearing transformation at AdGlo Royapuram",
     label: "Chemical Peel Result",
   },
@@ -34,8 +34,6 @@ const treatments = [
   "Micro Needling",
 ]
 
-/** Pairs: [0,1] then [2,3] */
-const PAIRS = [[0, 1], [2, 3]]
 const INTERVAL_MS = 3000
 
 export default function SkinTransforms() {
@@ -46,12 +44,12 @@ export default function SkinTransforms() {
   const [status,    setStatus]    = useState<"idle" | "loading" | "error">("idle")
   const [errMsg,    setErrMsg]    = useState("")
 
-  /* which pair is currently visible: 0 → images 0&1, 1 → images 2&3 */
-  const [pairIdx, setPairIdx] = useState(0)
+  /* which image is currently visible (0 – 3) */
+  const [activeIdx, setActiveIdx] = useState(0)
 
   useEffect(() => {
     const id = setInterval(() => {
-      setPairIdx(p => (p + 1) % PAIRS.length)
+      setActiveIdx(i => (i + 1) % transformImages.length)
     }, INTERVAL_MS)
     return () => clearInterval(id)
   }, [])
@@ -104,8 +102,6 @@ export default function SkinTransforms() {
     "text-[14px] text-[#111] outline-none transition " +
     "focus:border-[#d4202a] focus:ring-2 focus:ring-[#d4202a]/15"
 
-  const activePair = PAIRS[pairIdx]
-
   return (
     <section
       id="transforms"
@@ -149,15 +145,15 @@ export default function SkinTransforms() {
                 <p className="text-[13px] tracking-[.2em] uppercase text-[#d4202a] font-semibold">
                   Skin Transformation
                 </p>
-                {/* dot indicators */}
+                {/* dot indicators — one per image */}
                 <div className="flex gap-2">
-                  {PAIRS.map((_, i) => (
+                  {transformImages.map((_, i) => (
                     <button
                       key={i}
-                      onClick={() => setPairIdx(i)}
-                      aria-label={`Go to pair ${i + 1}`}
+                      onClick={() => setActiveIdx(i)}
+                      aria-label={`Go to image ${i + 1}`}
                       className={`rounded-full transition-all duration-300 ${
-                        i === pairIdx
+                        i === activeIdx
                           ? "w-5 h-2 bg-[#d4202a]"
                           : "w-2 h-2 bg-[#d4202a]/30 hover:bg-[#d4202a]/60"
                       }`}
@@ -166,31 +162,21 @@ export default function SkinTransforms() {
                 </div>
               </div>
 
-              {/* 2-up grid with crossfade */}
-              <div className="relative flex-1 min-h-48 max-[640px]:min-h-36">
-                {PAIRS.map((pair, pi) => (
+              {/* single-image crossfade */}
+              <div className="relative flex-1 min-h-48 max-[640px]:min-h-60">
+                {transformImages.map((img, i) => (
                   <div
-                    key={pi}
-                    className={`absolute inset-0 grid grid-cols-2 gap-3 transition-opacity duration-700 ${
-                      pi === pairIdx ? "opacity-100" : "opacity-0 pointer-events-none"
+                    key={i}
+                    className={`absolute inset-0 transition-opacity duration-700 ${
+                      i === activeIdx ? "opacity-100" : "opacity-0 pointer-events-none"
                     }`}
                   >
-                    {pair.map(imgIdx => {
-                      const img = transformImages[imgIdx]
-                      return (
-                        <div key={imgIdx} className="relative flex flex-col gap-2">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={img.src}
-                            alt={img.alt}
-                            className="w-full h-full object-cover rounded-[20px]"
-                          />
-                          {/* <span className="absolute bottom-2 left-0 right-0 text-center text-[11px] font-semibold tracking-[.12em] uppercase text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
-                            {img.label}
-                          </span> */}
-                        </div>
-                      )
-                    })}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover rounded-[20px]"
+                    />
                   </div>
                 ))}
               </div>

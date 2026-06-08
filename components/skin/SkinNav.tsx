@@ -1,6 +1,9 @@
 "use client"
 
+import { usePopup } from "./PopupContext"
+
 export default function SkinNav() {
+  const { openPopup } = usePopup()
   return (
     <nav className="sticky top-0 z-[100] bg-white/90 backdrop-blur-[14px] border-b border-black/10">
       <div
@@ -20,8 +23,8 @@ export default function SkinNav() {
           />
         </a>
 
-        <a
-          href="#consultation-form"
+        <button
+          onClick={() => openPopup()}
           className="inline-flex shrink-0 items-center justify-center text-center
                      bg-[#d4202a] text-white text-[12px] tracking-[.16em] uppercase font-bold
                      px-7 py-3.5 border border-[#d4202a]
@@ -30,7 +33,7 @@ export default function SkinNav() {
                      max-[560px]:text-[10px] max-[560px]:tracking-[.14em]"
         >
           Book Free Consultation
-        </a>
+        </button>
       </div>
     </nav>
   )

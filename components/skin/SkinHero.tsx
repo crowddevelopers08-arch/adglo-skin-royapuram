@@ -1,6 +1,10 @@
+"use client"
+
 import AnimateIn from "./AnimateIn"
+import { usePopup } from "./PopupContext"
 
 export default function SkinHero() {
+  const { openPopup } = usePopup()
   return (
     <section
       id="hero"
@@ -72,9 +76,9 @@ export default function SkinHero() {
               </p>
 
               {/* CTA button */}
-              <a
+              <button
                 id="book"
-                href="#consultation-form"
+                onClick={() => openPopup()}
                 className="inline-flex items-center gap-4
                            bg-[#d4202a] text-white border-2 border-[#d4202a]
                            px-9 py-5 text-[12px] tracking-[.16em] uppercase font-bold
@@ -94,7 +98,7 @@ export default function SkinHero() {
                   />
                 </span>
                 <span className="whitespace-nowrap">Book Your Free Consultation</span>
-              </a>
+              </button>
 
             </AnimateIn>
           </div>

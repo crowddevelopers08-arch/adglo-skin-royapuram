@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import AnimateIn from "./AnimateIn"
+import { usePopup } from "./PopupContext"
 
 const faqs = [
   {
@@ -39,6 +40,7 @@ const faqs = [
 ]
 
 export default function SkinFAQ() {
+  const { openPopup } = usePopup()
   const [openIdx, setOpenIdx] = useState<number | null>(0)
 
   return (
@@ -77,8 +79,8 @@ export default function SkinFAQ() {
               Everything you need to know before booking your skin consultation at AdGlo Royapuram.
             </p>
 
-            <a
-              href="#consultation-form"
+            <button
+              onClick={() => openPopup()}
               className="inline-flex items-center gap-3
                          bg-[#d4202a] text-white
                          px-8 py-4 text-[13px] tracking-[.14em] uppercase font-semibold
@@ -86,7 +88,7 @@ export default function SkinFAQ() {
             >
               <span>★</span>
               Book Free Consultation
-            </a>
+            </button>
           </AnimateIn>
 
           {/* ── RIGHT: accordion ── */}

@@ -1,4 +1,9 @@
+"use client"
+
+import { usePopup } from "./PopupContext"
+
 export default function SkinFinalCTA() {
+  const { openPopup } = usePopup()
   const infoRows = [
     { ic: "📍", l1: "Royapuram, Chennai", l2: "Tamil Nadu — 600 013" },
     { ic: "📞", l1: "+91 73580 34097",    l2: "Mon–Sat · 10am–8pm"   },
@@ -38,13 +43,13 @@ export default function SkinFinalCTA() {
               about what&apos;s possible for your skin.
             </p>
             <div className="flex items-center gap-5 flex-wrap">
-              <a
-                href="#consultation-form"
+              <button
+                onClick={() => openPopup()}
                 className="inline-flex items-center gap-3 bg-white text-[#d4202a] px-8 py-4 text-[12px] tracking-[.14em] uppercase font-semibold hover:bg-[#0a0a0a] hover:text-white transition-all duration-[250ms]"
               >
                 <span>★</span>
                 Book Free Consultation
-              </a>
+              </button>
               <a
                 href="tel:+917358034097"
                 className="inline-flex items-center gap-3 border border-white text-white px-8 py-4 text-[12px] tracking-[.14em] uppercase font-medium hover:bg-white hover:text-[#d4202a] transition-all duration-[250ms]"

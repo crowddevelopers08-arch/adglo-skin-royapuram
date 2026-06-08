@@ -9,7 +9,7 @@ const trustStats = [
 
 export default function SkinStats() {
   return (
-    <div className="bg-[#0a0a0a] py-10 max-[560px]:py-8">
+    <div className="bg-black py-10 max-[560px]:py-8">
       <div className="max-w-[1600px] mx-auto px-16 max-[768px]:px-10 max-[560px]:px-5">
         <div className="grid grid-cols-4 gap-4 max-[768px]:gap-3 max-[640px]:grid-cols-2 max-[640px]:gap-3">
           {trustStats.map((s, i) => (

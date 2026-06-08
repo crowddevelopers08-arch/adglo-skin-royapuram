@@ -1,4 +1,7 @@
+"use client"
+
 import AnimateIn from "./AnimateIn"
+import { usePopup } from "./PopupContext"
 
 const navLinks = [
   { label: "Treatments",      href: "#services"    },
@@ -43,6 +46,7 @@ const FacebookIcon = () => (
 )
 
 export default function SkinFooter() {
+  const { openPopup } = usePopup()
   return (
     <footer className="bg-[#070707] text-[#f5f1ea]">
 
@@ -67,8 +71,8 @@ export default function SkinFooter() {
             treatment plan just for you.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
-            <a
-              href="#consultation-form"
+            <button
+              onClick={() => openPopup()}
               className="inline-flex items-center gap-3
                          bg-white text-[#d4202a] font-bold
                          px-9 py-4 text-[13px] tracking-[.16em] uppercase
@@ -77,7 +81,7 @@ export default function SkinFooter() {
             >
               <span>★</span>
               Book Free Consultation
-            </a>
+            </button>
             <a
               href={WA_LINK}
               target="_blank"

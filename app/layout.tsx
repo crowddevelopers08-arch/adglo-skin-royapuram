@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
+import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
   title: "AdGlo Skin Clinic — Royapuram | Best Skin Clinic in Royapuram",
@@ -32,8 +33,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
-        {children}
+      {/* pb-14 = 56 px — matches MobileBottomBar height, only on ≤768px */}
+      <body className="font-sans antialiased max-[768px]:pb-14">
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )

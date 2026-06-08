@@ -1,5 +1,8 @@
+"use client"
+
 import AnimateIn from "./AnimateIn"
 import SkinCarousel from "./SkinCarousel"
+import { usePopup } from "./PopupContext" // used inside ServiceCard
 
 const services = [
   {
@@ -41,6 +44,7 @@ const services = [
 ]
 
 function ServiceCard({ svc }: { svc: typeof services[0] }) {
+  const { openPopup } = usePopup()
   return (
     <article className="bg-[#161616] relative group overflow-hidden
                         border border-white/[.08]
@@ -76,13 +80,13 @@ function ServiceCard({ svc }: { svc: typeof services[0] }) {
         <p className="text-[13px] text-[#999] leading-[1.8] mb-6 flex-1">
           {svc.desc}
         </p>
-        <a
-          href="#consultation-form"
+        <button
+          onClick={() => openPopup(svc.name)}
           className="inline-flex items-center gap-2 text-[11px] tracking-[.18em] uppercase
                      font-bold text-[#d4202a] hover:gap-4 transition-all duration-200 mt-auto"
         >
           Book This Treatment →
-        </a>
+        </button>
       </div>
     </article>
   )
@@ -127,6 +131,8 @@ export default function SkinServices() {
         <div className="hidden max-[640px]:block">
           <SkinCarousel
             darkMode
+            autoPlay
+            interval={3000}
             items={services.map((svc) => (
               <ServiceCard key={svc.num} svc={svc} />
             ))}
