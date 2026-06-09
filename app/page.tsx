@@ -1,6 +1,7 @@
 import SkinStyles          from "@/components/skin/SkinStyles"
 import SkinNav             from "@/components/skin/SkinNav"
 import SkinHero            from "@/components/skin/SkinHero"
+import SkinHeroBanner      from "@/components/skin/SkinHeroBanner"
 import SkinClinicRow       from "@/components/skin/SkinClinicRow"
 import SkinStats           from "@/components/skin/SkinStats"
 import SkinTransforms      from "@/components/skin/SkinTransforms"
@@ -31,7 +32,8 @@ export default function SkinPage() {
 
       <main>
         {/* Section 1 – Banner / Hero */}
-        <SkinHero />
+        {/* <SkinHero /> */}
+          <SkinHeroBanner />
         <SkinClinicRow />
         <SkinStats />
 

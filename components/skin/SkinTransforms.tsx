@@ -6,22 +6,22 @@ import AnimateIn from "./AnimateIn"
 /** Four before/after transformation images – 2 shown at a time, auto-scroll every 3 s */
 const transformImages = [
   {
-    src: "/sl.jpg",
+    src: "/d3933472-b887-49ba-baa8-0ed837cb471d.png",
     alt: "Skin brightening transformation at AdGlo Royapuram",
     label: "Gluta IV Result",
   },
   {
-    src: "/before-and.jpg",
+    src: "/2bfea712-1861-458e-974f-b8e257d65d30.png",
     alt: "Acne clearing transformation at AdGlo Royapuram",
     label: "Chemical Peel Result",
   },
   {
-    src: "/aaf089a7-7445-460a-81b4-825f1e6350f5.png",
+    src: "/012250f7-9259-48d7-9030-0555e821cc39.png",
     alt: "Pore reduction transformation at AdGlo Royapuram",
     label: "Aqua Luxe Result",
   },
   {
-    src: "/178431e9-e30c-43c0-b9cb-88d71a68327c.png",
+    src: "/3ba902a4-8504-4492-8a2a-34ca2677178e.png",
     alt: "Pigmentation reduction transformation at AdGlo Royapuram",
     label: "Micro Needling Result",
   },
