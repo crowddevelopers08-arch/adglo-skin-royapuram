@@ -32,7 +32,7 @@ export default function SkinWhyUs() {
             >
               Why Choose
               <br />
-              <em className="not-italic text-[#d4202a]">AdGro Royapuram?</em>
+              <em className="not-italic text-[#d4202a]">AdGlo Royapuram?</em>
             </h2>
 
             <p className="text-[13px] tracking-[.06em] uppercase text-[#888] mb-6 leading-[1.5]">
@@ -41,7 +41,7 @@ export default function SkinWhyUs() {
 
             <p className="text-[15px] leading-[1.7] text-[#3a3a3a] max-w-[460px]
                           max-[900px]:max-w-full">
-              We&apos;re not just another clinic. We&apos;re Royapuram&apos;s most trusted
+             We've treated around 1lakh+ people's skin problems. We&apos;re not just another clinic. We&apos;re Royapuram&apos;s most trusted
               destination — built on diagnosis, expert care, and real results.
             </p>
 
