@@ -5,7 +5,7 @@ import { usePopup } from "./PopupContext"
 
 const navLinks = [
   { label: "Treatments",      href: "#services"    },
-  { label: "Why AdGro",       href: "#why"          },
+  { label: "Why AdGlo",       href: "#why"          },
   { label: "Transformations", href: "#transforms"  },
   { label: "Testimonials",    href: "#testimonials" },
   { label: "FAQ",             href: "#faq"          },
