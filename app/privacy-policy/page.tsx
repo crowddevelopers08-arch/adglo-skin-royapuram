@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     id: "information-we-collect",
-    title: "Information We Collect",
+    title: "Informations We Collect",
     content: [
       {
         subtitle: "Personal Information",
